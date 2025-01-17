@@ -1,36 +1,36 @@
 package Test;
+/*  Phutawan Mueangma    
+    672115037
+    Program for to SE tutorial 3
+*/  
+public class Stack{
 
-class Stack {
-    private int[] stackArray; 
-    private int top; 
-    private int capacity;
-
-
+    public  static StudentClass[] stackArray;
+    private static int top;
+    private static int capacity; 
+        
     public Stack(int capacity) {
         this.capacity = capacity;
-        stackArray = new int[capacity];
-        top = -1; 
+        stackArray = new StudentClass[capacity];
+        top = -1;
     }
-
-    public void push(int value) {
+        
+    public void push(StudentClass element) {
         if (isFull()) {
-            System.out.println("Stack overflow");
-        } else {
-            stackArray[++top] = value;
-        }
+        System.out.println("Stack overflow");
+    } else {
+        stackArray[++top] = element;
+        System.out.println("Element " + element + " is pushed into the queue");
+    }
     }
 
-    public int pop() {
+    public StudentClass pop() {
         if (isEmpty()) {
-            System.out.println("Stack overflow.");
-            return -1; 
+            System.out.println("Stack underflow");
+            return null;
         } else {
             return stackArray[top--];
         }
-    }
-
-    public void peek() {
-         System.out.println(stackArray[top]); ;
 
     }
 
@@ -39,21 +39,19 @@ class Stack {
     }
 
     public boolean isFull() {
-        return top == capacity - 1;
+        return top == capacity;
     }
 
-    public int size() {
-            return top + 1;
-        }
-
-    public String PrintStack(){
-            String result = "";
-            for(int i =  0; i < size(); i++){
-                result = result + " " + stackArray[i];
-            }  
-            return "[" + result + "]" ;
+    public StudentClass peek() {
+        return stackArray[top];
     }
+
+    public int max() {
+        return top + 1;
+    }
+
+    public static int capacity() {
+        return capacity;
+    }
+
 }
-
-
-    
